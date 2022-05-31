@@ -25,7 +25,9 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  simple_animations: ^4.0.2
+  animated_text_kit: ^4.2.1
+
+#  simple_animations: ^4.0.2
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +41,7 @@ flutter:
   - assets/images/yo.jpeg
   - assets/images/Sky.jpg
   - assets/images/NyctobitsFinal.png
+  - assets/images/rohaan.jpg
 
   fonts:
     - family: Ambit
