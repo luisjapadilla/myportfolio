@@ -11,33 +11,69 @@ class Homeview extends StatefulWidget {
 }
 
 class _HomeviewState extends State<Homeview> {
-
   final _scrollController = ScrollController();
-  late String _index;
+  late String _index = "0";
 
   void _scrollToIndex(index) {
     _scrollController.animateTo((MediaQuery.of(context).size.height) * index,
         duration: const Duration(seconds: 1), curve: Curves.easeIn);
   }
+
   void _changeIndex() {
-    if(_scrollController.offset < MediaQuery.of(context).size.height/2){
-      _index = "0";
+    if (_scrollController.offset < MediaQuery.of(context).size.height / 2 && _index != "0") {
+      setState(() {
+        _index = "0";
+      });}
+    if (_scrollController.offset > MediaQuery.of(context).size.height / 2 && _index != "1") {
+      setState(() {
+        _index = "1";
+      });
     }
-    if(_scrollController.offset > MediaQuery.of(context).size.height/2){
-      _index = "1";
+    if (_scrollController.offset > MediaQuery.of(context).size.height / 2.5 && _index != "2") {
+      setState(() {
+        _index = "2";
+      });
     }
-    if(_scrollController.offset > MediaQuery.of(context).size.height*1.5){
-      _index = "2";
-    }
-    if(_scrollController.offset > MediaQuery.of(context).size.height*2.5){
-      _index = "3";
+    if (_scrollController.offset > MediaQuery.of(context).size.height / 3.5 && _index != "3") {
+      setState(() {
+        _index = "3";
+      });
     }
   }
+
+  Widget _nytologo(){
+    return Container(
+      height: MediaQuery.of(context).size.height/10,
+      key: UniqueKey(),
+      child: Image(
+        image: AssetImage('assets/images/NyctobitsFinal.png'),
+      ),
+    );
+  }
+  Widget _mypic(){
+    return Container(
+      height: MediaQuery.of(context).size.height/10,
+      key: UniqueKey(),
+      child: CircleAvatar(
+        backgroundColor: Colors.green,
+        radius: 115,
+        child: CircleAvatar(
+          backgroundColor: Colors.greenAccent[100],
+          radius: 110,
+          child: CircleAvatar(
+            backgroundImage: AssetImage('assets/images/yo.jpeg'),//NetworkImage
+            radius: 100,
+          ), //CircleAvatar
+        ), //CircleAvatar
+      ), //
+    );
+  }
+
   @override
   void initState() {
     // TODO: implement initState
-    _index = "0";
   }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -57,11 +93,19 @@ class _HomeviewState extends State<Homeview> {
                 ])),
             child: Column(
               children: [
-                SizedBox(height: 100,),
-               Image(
-                  image: AssetImage('assets/images/NyctobitsFinal.png'),
+                SizedBox(
+                  height: 100,
                 ),
-                SizedBox(height: 100,),
+                AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 500),
+                    transitionBuilder: (Widget child, Animation<double> animation) {
+                      return ScaleTransition(scale: animation, child: child);
+                    },
+                  child: _index == "1" ? _mypic() : _nytologo()
+                ),
+                SizedBox(
+                  height: 100,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -71,74 +115,95 @@ class _HomeviewState extends State<Homeview> {
                       size: 40,
                       semanticLabel: 'Text to announce in accessibility modes',
                     ),
-                    Text(_index.toString(),  style: TextStyle(
-                      fontFamily: 'Ambit',
-                      decoration: TextDecoration.none,
-                      fontSize: 10,
-                      color: Colors.white,),),
-                  ],
-                ),
-                SizedBox(height: 50,),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.favorite,
-                        color: Colors.white,
-                        size: 40,
-                        semanticLabel: 'Text to announce in accessibility modes',
-                      ),
-                      Text("about",  style: TextStyle(
+                    Text(
+                      _index.toString(),
+                      style: TextStyle(
                         fontFamily: 'Ambit',
                         decoration: TextDecoration.none,
                         fontSize: 10,
-                        color: Colors.white,),),
-                    ],
-                  ),
-                SizedBox(height: 50,),
-
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 50,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
                       Icons.favorite,
-                      color: Colors.white,
+                      color: _index == "1" ? Colors.deepOrange : Colors.white,
                       size: 40,
                       semanticLabel: 'Text to announce in accessibility modes',
                     ),
-                    Text("about",  style: TextStyle(
-                      fontFamily: 'Ambit',
-                      decoration: TextDecoration.none,
-                      fontSize: 10,
-                      color: Colors.white,),),
+                    Text(
+                      "about",
+                      style: TextStyle(
+                        fontFamily: 'Ambit',
+                        decoration: TextDecoration.none,
+                        fontSize: 10,
+                        color: Colors.white,
+                      ),
+                    ),
                   ],
                 ),
-                SizedBox(height: 50,),
-
+                SizedBox(
+                  height: 50,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.favorite,
+                      color: _index == "2" ? Colors.deepOrange : Colors.white,
+                      size: 40,
+                      semanticLabel: 'Text to announce in accessibility modes',
+                    ),
+                    Text(
+                      "about",
+                      style: TextStyle(
+                        fontFamily: 'Ambit',
+                        decoration: TextDecoration.none,
+                        fontSize: 10,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 50,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         _scrollToIndex(2);
-
                       },
                       child: Icon(
                         Icons.favorite,
-                        color: Colors.white,
+                        color: _index == "3" ? Colors.deepOrange : Colors.white,
                         size: 40,
-                        semanticLabel: 'Text to announce in accessibility modes',
+                        semanticLabel:
+                            'Text to announce in accessibility modes',
                       ),
                     ),
-                    Text("about",  style: TextStyle(
-                      fontFamily: 'Ambit',
-                      decoration: TextDecoration.none,
-                      fontSize: 10,
-                      color: Colors.white,),),
+                    Text(
+                      "about",
+                      style: TextStyle(
+                        fontFamily: 'Ambit',
+                        decoration: TextDecoration.none,
+                        fontSize: 10,
+                        color: Colors.white,
+                      ),
+                    ),
                   ],
                 ),
-                SizedBox(height: 50,),
-
+                SizedBox(
+                  height: 50,
+                ),
               ],
             )),
         Expanded(
@@ -151,17 +216,12 @@ class _HomeviewState extends State<Homeview> {
                 image: AssetImage('assets/images/rohaan.jpg'),
               ),
             ),
-            NotificationListener <ScrollNotification>(
+            NotificationListener<ScrollNotification>(
               onNotification: (_scrollController) {
                 if (_scrollController is ScrollStartNotification) {
-
                 } else if (_scrollController is ScrollUpdateNotification) {
-                  setState(() {
                     _changeIndex();
-                  });
-                } else if (_scrollController is ScrollEndNotification) {
-
-                }
+                } else if (_scrollController is ScrollEndNotification) {}
                 return true;
               },
               child: CustomScrollView(
