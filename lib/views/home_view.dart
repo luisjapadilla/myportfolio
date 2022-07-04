@@ -20,21 +20,21 @@ class _HomeviewState extends State<Homeview> {
   }
 
   void _changeIndex() {
-    if (_scrollController.offset < MediaQuery.of(context).size.height / 2 && _index != "0") {
+    if (_scrollController.offset < MediaQuery.of(context).size.height /2 && _index != "0") {
       setState(() {
         _index = "0";
       });}
-    if (_scrollController.offset > MediaQuery.of(context).size.height / 2 && _index != "1") {
+    if (_scrollController.offset > MediaQuery.of(context).size.height /2 && _index != "1") {
       setState(() {
         _index = "1";
       });
     }
-    if (_scrollController.offset > MediaQuery.of(context).size.height / 2.5 && _index != "2") {
+    if (_scrollController.offset > MediaQuery.of(context).size.height * 1.5 && _index != "2") {
       setState(() {
         _index = "2";
       });
     }
-    if (_scrollController.offset > MediaQuery.of(context).size.height / 3.5 && _index != "3") {
+    if (_scrollController.offset > MediaQuery.of(context).size.height * 2.5 && _index != "3") {
       setState(() {
         _index = "3";
       });
@@ -44,7 +44,7 @@ class _HomeviewState extends State<Homeview> {
   Widget _nytologo(){
     return Container(
       height: MediaQuery.of(context).size.height/10,
-      key: UniqueKey(),
+      key: Key('logo'),
       child: Image(
         image: AssetImage('assets/images/NyctobitsFinal.png'),
       ),
@@ -53,7 +53,7 @@ class _HomeviewState extends State<Homeview> {
   Widget _mypic(){
     return Container(
       height: MediaQuery.of(context).size.height/10,
-      key: UniqueKey(),
+      key: Key('pic'),
       child: CircleAvatar(
         backgroundColor: Colors.green,
         radius: 115,
@@ -101,7 +101,7 @@ class _HomeviewState extends State<Homeview> {
                     transitionBuilder: (Widget child, Animation<double> animation) {
                       return ScaleTransition(scale: animation, child: child);
                     },
-                  child: _index == "1" ? _mypic() : _nytologo()
+                  child: _index == "0" ? _nytologo() : _mypic()
                 ),
                 SizedBox(
                   height: 100,
@@ -113,10 +113,9 @@ class _HomeviewState extends State<Homeview> {
                       Icons.favorite,
                       color: _index == "0" ? Colors.deepOrange : Colors.white,
                       size: 40,
-                      semanticLabel: 'Text to announce in accessibility modes',
                     ),
                     Text(
-                      _index.toString(),
+                      "About me",
                       style: TextStyle(
                         fontFamily: 'Ambit',
                         decoration: TextDecoration.none,
@@ -133,13 +132,13 @@ class _HomeviewState extends State<Homeview> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.favorite,
+                      Icons.work,
                       color: _index == "1" ? Colors.deepOrange : Colors.white,
                       size: 40,
                       semanticLabel: 'Text to announce in accessibility modes',
                     ),
                     Text(
-                      "about",
+                      "Experience",
                       style: TextStyle(
                         fontFamily: 'Ambit',
                         decoration: TextDecoration.none,
@@ -156,13 +155,13 @@ class _HomeviewState extends State<Homeview> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.favorite,
+                      Icons.account_balance,
                       color: _index == "2" ? Colors.deepOrange : Colors.white,
                       size: 40,
                       semanticLabel: 'Text to announce in accessibility modes',
                     ),
                     Text(
-                      "about",
+                      "Studies",
                       style: TextStyle(
                         fontFamily: 'Ambit',
                         decoration: TextDecoration.none,
@@ -186,12 +185,10 @@ class _HomeviewState extends State<Homeview> {
                         Icons.favorite,
                         color: _index == "3" ? Colors.deepOrange : Colors.white,
                         size: 40,
-                        semanticLabel:
-                            'Text to announce in accessibility modes',
                       ),
                     ),
                     Text(
-                      "about",
+                      "Other things",
                       style: TextStyle(
                         fontFamily: 'Ambit',
                         decoration: TextDecoration.none,
@@ -213,7 +210,7 @@ class _HomeviewState extends State<Homeview> {
               height: MediaQuery.of(context).size.height,
               alignment: Alignment.topRight,
               child: Image(
-                image: AssetImage('assets/images/rohaan.jpg'),
+                image: AssetImage('assets/images/luisinfondocortado.png'),
               ),
             ),
             NotificationListener<ScrollNotification>(

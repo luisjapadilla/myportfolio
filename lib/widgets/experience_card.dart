@@ -23,7 +23,7 @@ class _CardExperienceState extends State<CardExperience> {
               alignment: Alignment.topLeft,
               children: [
                 Positioned(child: Container(
-                  margin: EdgeInsets.only(right: (MediaQuery.of(context).size.width) / 7,),
+                  margin: EdgeInsets.only(right: (MediaQuery.of(context).size.width) / 7,left: (MediaQuery.of(context).size.width) / 7,),
                   child: Column(
                     children: [
                       Text("Experience",  style: TextStyle(
@@ -32,8 +32,9 @@ class _CardExperienceState extends State<CardExperience> {
                         decorationColor: Color(0xffc28bff),
                         fontSize: 30,
                         color: Colors.black,),),
-                      SizedBox(height: 20,),
-                      Text("One of my first and most consistents clients have been Mandados. A in-city delivery company. The first job that I personally was incharge to make was a ",  style: TextStyle(
+                      SizedBox(height: 40,),
+                      Text("One of my first and most consistents clients have been Mandados. A in-city delivery company. The first job that I personally was incharge to make was a "
+                          "One of my first and most consistents clients have been Mandados. A in-city delivery company. The first job that I personally was incharge to make was a",  style: TextStyle(
                         fontFamily: 'Ambit',
                         decoration: TextDecoration.none,
                         fontSize: 20,
@@ -45,8 +46,14 @@ class _CardExperienceState extends State<CardExperience> {
                 Positioned(
                   top: 20,
                     right: 0,
-                    child:Transform.rotate(child: Image.network('https://picsum.photos/200/300'),angle: 0.2,))
+                    child:Transform.rotate(child: Image.network('https://picsum.photos/200/300'),angle: 0.2,)),
+                Positioned(
+                    top: 320,
+                    left: 0,
+                    child:Transform.rotate(child: Image.network('https://picsum.photos/200/300'),angle: -0.2,))
               ],
+
+
             )
           ),
         ],

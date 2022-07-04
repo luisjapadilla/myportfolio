@@ -46,6 +46,7 @@ class _CardPersonalState extends State<CardPersonal> {
                           TypewriterAnimatedText('a Programmer'),
                           TypewriterAnimatedText('a Writter'),
                           TypewriterAnimatedText('a Gamer'),
+                          TypewriterAnimatedText('a Tester'),
                         ],
                         onTap: () {
                           print("Tap Event");
