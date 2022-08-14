@@ -39,6 +39,7 @@ flutter:
 
   assets:
   - assets/images/yo.jpeg
+  - assets/images/me.png
   - assets/images/Sky.jpg
   - assets/images/NyctobitsFinal.png
   - assets/images/rohaan.jpg

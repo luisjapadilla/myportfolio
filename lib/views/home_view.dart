@@ -61,7 +61,7 @@ class _HomeviewState extends State<Homeview> {
           backgroundColor: Colors.greenAccent[100],
           radius: 110,
           child: CircleAvatar(
-            backgroundImage: AssetImage('assets/images/yo.jpeg'),//NetworkImage
+            backgroundImage: AssetImage('assets/images/me.png'),//NetworkImage
             radius: 100,
           ), //CircleAvatar
         ), //CircleAvatar

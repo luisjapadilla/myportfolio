@@ -55,10 +55,34 @@ class _CardPersonalState extends State<CardPersonal> {
                     ),
                   ),
                       SizedBox(height: 15,),
-                      Text("The problem, as described in the details that accompany that exception, is that using Flexible or Expanded means that the remaining space after laying out all the other children must be shared equally, but if the incoming vertical constraints are unbounded, there is infinite remaining space.",maxLines: 3,  style: TextStyle(
+                      Text("I was born and raised in Venezuela. In my teenage years, I had the opportunity to move to the United States which lead to many tests, one of them which was to learn the language. Afterward, I came to Colombia to study my passion since very little, Software development. This thankfully happened in Bogota. Then I moved once again, this time to Medellin in pursuit of new opportunities in my career and personal life.",maxLines: 3,  style: TextStyle(
                         fontFamily: 'Ambit',
                         decoration: TextDecoration.none,
-                        fontSize: 20,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w100,
+                        height: 2, //line height 200%, 1= 100%, were 0.9 = 90% of actual line height
+                        color: Colors.black,),),
+                      SizedBox(height: 5,),
+                      Text("Currently, I'm working as a bilingual software tester. My job is to be analytical and have good planning so everything can come out perfect in the end",maxLines: 3,  style: TextStyle(
+                        fontFamily: 'Ambit',
+                        decoration: TextDecoration.none,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w100,
+                        height: 2, //line height 200%, 1= 100%, were 0.9 = 90% of actual line height
+                        color: Colors.black,),),
+                      SizedBox(height: 5,),
+                      Text("I love my job and the people around me. I always try to be a force of good wherever I go, since good vibes will always bring good things.",maxLines: 3,  style: TextStyle(
+                        fontFamily: 'Ambit',
+                        decoration: TextDecoration.none,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w100,
+                        height: 2, //line height 200%, 1= 100%, were 0.9 = 90% of actual line height
+                        color: Colors.black,),),
+                      SizedBox(height: 5,),
+                      Text("Although it hasn't been easy I still look forward to what life has in store for me.",maxLines: 3,  style: TextStyle(
+                        fontFamily: 'Ambit',
+                        decoration: TextDecoration.none,
+                        fontSize: 17,
                         fontWeight: FontWeight.w100,
                         height: 2, //line height 200%, 1= 100%, were 0.9 = 90% of actual line height
                         color: Colors.black,),),
