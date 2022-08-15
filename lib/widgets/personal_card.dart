@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
 class CardPersonal extends StatefulWidget {
   const CardPersonal({Key? key}) : super(key: key);
@@ -95,7 +96,7 @@ class _CardPersonalState extends State<CardPersonal> {
                   children: [
                     ElevatedButton.icon(
                       onPressed: () {
-                        print("Doing everything");
+                        html.window.open('https://github.com/luisjapadilla',"_blank");
                       },
                       
                       //This prop for beautiful expressions
@@ -127,7 +128,7 @@ class _CardPersonalState extends State<CardPersonal> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        print("Doing everything");
+                        html.window.open('https://www.linkedin.com/in/luisjapadilla/',"_blank");
                       },
                       //This prop for beautiful expressions
                       child: Text("Linkedin"),
