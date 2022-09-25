@@ -40,6 +40,7 @@ flutter:
 
   assets:
   - assets/images/yo.jpeg
+  - assets/images/lily_running.gif
   - assets/images/me.png
   - assets/images/Sky.jpg
   - assets/images/NyctobitsFinal.png

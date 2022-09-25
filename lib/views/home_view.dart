@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myportfolio/widgets/experience_card.dart';
 
 import '../widgets/personal_card.dart';
+import '../widgets/work_card.dart';
 
 class Homeview extends StatefulWidget {
   const Homeview({Key? key}) : super(key: key);
@@ -232,7 +233,7 @@ class _HomeviewState extends State<Homeview> {
                         <Widget>[
                           const CardPersonal(),
                           const CardExperience(),
-                          const CardExperience(),
+                          const CardWork(),
                           const CardExperience(),
                         ],
                       ),
